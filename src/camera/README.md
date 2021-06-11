@@ -47,8 +47,14 @@ $ cd ~/catkin_ws/src
 $ git clone https://github.com/SeungBack/azure_kinect_manager
 $ ROS_NAMESPACE=azure1 roslaunch azure_kinect_ros_driver driver.launch color_resolution:=2160P depth_mode:=WFOV_2X2BINNED fps:=5 tf_prefix:=azure1_
 $ roslaunch azure_kinect_manager single_azure_manager.launch 
-$ rosservice call /azure1/get_camera_pose_single_markerboard "publish_worldmap: true
+$ rosservice call /azure1/get_camera_pose_single_markerboard "publish_worldmap: true"
 ```
+
+
+```
+$ rosservice call /azure1/set_camera_pose "json_file: 'world_to_azure1_rgb_camera_link_20210611-160227'" 
+```
+
 <img src="../../imgs/extrinsic_calibration.png" height="200">
 
 7. Pointcloud processing
@@ -56,3 +62,4 @@ $ rosservice call /azure1/get_camera_pose_single_markerboard "publish_worldmap: 
 ```
 $ rosrun easy_ros_tutorial ponitcloud_processor.py 
 ```
+
